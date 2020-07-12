@@ -1,0 +1,156 @@
+@import "scss/var";
+@import "scss/functions";
+
+.header-search{
+    height: 32px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+
+    @media (min-width: $size-landscape + 1){
+        height: 40px;
+    }
+
+    @media (max-width: $size-landscape) {
+        &.full-view {
+            .header-search-content {
+                width: 100%;
+                height: 48px;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}
+
+.header-search-content{
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    background-color: $color3;
+
+    @media (max-width: $size-landscape){
+        width: calc(100% - 68px);
+        height: 32px;
+        position: absolute;
+        left: 60px;
+        top: 8px;
+        transition-property: width, height, left, top;
+        transition-duration: 200ms;
+        transition-timing-function: ease-out;
+    }
+
+    @media (min-width: $size-landscape +1){
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.header-search-close-btn{
+    font-size: pxToEm(22px);
+    line-height: 100%;
+    padding-left: 8px;
+    padding-right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before{
+        content: '\EA01';
+        font-family: navigation;
+    }
+}
+
+.header-search-label{
+    height: 100%;
+    width: 1px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: $size-landscape + 1){
+        height: calc(100%  - 16px);
+        border-right: 1px solid $color5;
+    }
+
+    .nav-icon-search{
+        color: $color6;
+        padding-left: 8px;
+    }
+}
+
+.header-search-input{
+    width: 1;
+    height: 100%;
+    flex-grow: 1;
+    border: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0 8px;
+    font-size: pxToEm(16px);
+
+    @media (min-width: $size-landscape + 1){
+        padding: 0 16px;
+    }
+}
+
+.nav-icon-search{
+    &:before{
+        content: '\EA27';
+    }
+}
+
+.header-search-btn{
+    font-weight: 400;
+    font-size: pxToEm(16px);
+    line-height: pxToEm(20px);
+    font-style: normal;
+    color: $color6;
+    padding: 8px 16px;
+    height: 100%;
+    box-sizing: border-box;
+
+    &.hidden{
+        display: none;
+    }
+
+    &:before{
+        transform-origin: 50% 50%;
+    }
+
+    @media (min-width: $size-landscape + 1){
+        &:hover{
+            &:before{
+                animation: 300ms ease pulse;
+            }
+        }
+    }
+}
+
+.header-search-clean-icon{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+
+    &:before,
+    &:after{
+        content: '';
+        width: 100%;
+        height: 1px;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        background-color: $color4;
+        border-radius: 2px;
+    }
+
+    &:before{
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:after{
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}

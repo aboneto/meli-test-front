@@ -1,0 +1,38 @@
+@import "scss/var";
+
+.header{
+    background-color: $color2;
+
+    .container{
+        display: flex;
+        align-items: center;
+        padding: 8px;
+
+        @media (min-width: $size-landscape + 1){
+            padding: 16px;
+        }
+    }
+}
+
+.header-logo{
+    margin-right: 8px;
+    height: 32px;
+    transform-origin: 50% 50%;
+
+
+    @media (min-width: $size-landscape + 1){
+        margin-right: 32px;
+    }
+
+    img{
+        height: 100%;
+        width: auto;
+        display: block;
+    }
+
+    @media (min-width: $size-landscape + 1){
+        &:hover{
+            animation: 300ms ease pulse;
+        }
+    }
+}

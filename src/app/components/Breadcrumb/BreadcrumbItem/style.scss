@@ -1,0 +1,26 @@
+@import "scss/var";
+@import "scss/functions";
+
+.breadcrumb-item{
+    display: inline;
+    font-size: pxToEm(14px);
+    font-weight: 400;
+    line-height: 1.45;
+
+    &:after{
+        content: '>';
+        font-size: 11px;
+        display: inline-block;
+        margin: 0 8px;
+    }
+
+    &:last-child{
+        &:after{
+            display: none;
+        }
+    }
+}
+
+.breadcrumb-link{
+
+}

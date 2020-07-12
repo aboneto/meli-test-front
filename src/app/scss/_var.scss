@@ -1,0 +1,41 @@
+/* --- Colors  --- */
+$color1: #eee;
+$color2: #fff159;
+$color3: white;
+$color4: #333;
+$color5: #e6e6e6;
+$color6: #666;
+$color7: #00a650;
+$color8: black;
+$color9: #3483fa;
+$color10: #d8d8d8;
+
+/* SIZES */
+$size-small-mobile: 360px;
+$size-mobile: 480px;
+$size-tablet: 840px;
+//768
+$size-prev-landscape:1120px;
+$size-landscape: 1024px;
+$size-tablet-vertical: 768px;
+
+/* FONT-SIZE */
+$default-font-size: 16px;
+
+$font-family: 'Proxima Nova', sans-serif;
+
+
+/* ANIMATIONS */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

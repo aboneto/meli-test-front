@@ -1,0 +1,12 @@
+@import "scss/var";
+
+@function pxToEm($size, $defaultSize: $default-font-size) {
+    @return ($size / $defaultSize) * 1rem;
+}
+
+@mixin extendCategoryFont($title) {
+  .jumbo-icon-category-#{$title}:before{
+      font-family: Font-icon-extended;
+      @extend .font-icn-cat.cat-#{$title}:before;
+  }
+}
