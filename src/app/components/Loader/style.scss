@@ -1,0 +1,45 @@
+@import "scss/var";
+
+.loader,
+.loader:after {
+border-radius: 50%;
+// width: 5px;
+// height: 5px;
+}
+.loader {
+    $background: lighten($color4, 60%);
+    $content: lighten($color4, 40%);
+
+    margin: 60px auto;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 5px solid $background;
+    border-right: 5px solid $background;
+    border-bottom: 5px solid $background;
+    border-left: 5px solid $content;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: loader 1.1s infinite linear;
+    animation: loader 1.1s infinite linear;
+    z-index: 1;
+    display: none;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+
+    &.active{
+        display: block;
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

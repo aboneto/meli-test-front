@@ -1,0 +1,112 @@
+@import "scss/var";
+@import "scss/functions";
+
+.product-page-container{
+    background-color: $color3;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.3);
+}
+
+.product-info{
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $size-tablet-vertical + 1) {
+        flex-direction: row;
+    }
+}
+
+.product-image{
+    height: 282px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid $color1;
+
+    img{
+        width: auto;
+        height: auto;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    @media (min-width: $size-tablet-vertical + 1) {
+        padding: 16px;
+        height: 500px;
+        border-bottom: 0;
+    }
+}
+
+.product-info-content{
+    flex-shrink: 0;
+    padding: 16px;
+    border-bottom: 1px solid $color10;
+    box-sizing: border-box;
+
+    @media (min-width: $size-tablet-vertical + 1) {
+        width: 35%;
+        padding: 32px;
+        border-bottom: 0;
+    }
+}
+
+.product-status{
+    font-size: pxToEm(14px);
+    color: $color6;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.product-title{
+    font-size: pxToEm(26px);
+    font-weight: 600;
+    line-height: 1.05;
+}
+
+.product-price{
+    margin-top: 16px;
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 0.6;
+    display: flex;
+    padding-bottom: 4px;
+}
+
+.product-price-decimal{
+    font-size: 0.5em;
+}
+
+.product-buy-btn{
+    width: 100%;
+    margin-top: 24px;
+}
+
+.product-description{
+    padding: 16px;
+
+    @media (min-width: $size-tablet-vertical + 1) {
+        padding: 32px;
+    }
+}
+
+.product-description-title{
+    font-weight: 600;
+    font-size: pxToEm(24px);
+    line-height: 1;
+    margin-bottom: 20px;
+
+    @media (min-width: $size-tablet-vertical + 1) {
+        margin-bottom: 32px;
+    }
+}
+
+.product-description-content{
+    color: $color6;
+    font-size: pxToEm(16px);
+    line-height: pxToEm(22px);
+    white-space: pre-line;
+
+    @media (min-width: $size-tablet-vertical + 1) {
+        font-size: pxToEm(20px);
+    }
+}

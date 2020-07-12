@@ -1,0 +1,35 @@
+{
+    "name": "Mercado Libre Chile",
+    "description": "La comunidad de compra y venta online más grande de América Latina.",
+    "short_name": "Mercado Libre Chile",
+    "theme_color": "#fff159",
+    "background_color": "#fff159",
+    "display": "standalone",
+    "orientation": "portrait",
+    "Scope": "/",
+    "start_url": "./index.html",
+    "manifest_version": 1.0,
+    "icons": [
+        {
+            "src": "https://http2.mlstatic.com/ui/navigation/5.7.0/mercadolibre/favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "https://http2.mlstatic.com/ui/navigation/5.7.0/mercadolibre/76x76-precomposed.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        },
+        {
+            "src": "https://http2.mlstatic.com/ui/navigation/5.7.0/mercadolibre/120x120-precomposed.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "https://http2.mlstatic.com/ui/navigation/5.7.0/mercadolibre/152x152-precomposed.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        }
+    ],
+    "splash_pages": null
+}
