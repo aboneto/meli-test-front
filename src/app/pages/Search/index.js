@@ -9,6 +9,7 @@ import Breadcrumb from "components/Breadcrumb";
 
 const Search = (props) => {
     const [products, setProducts] = useState(null);
+    const [search, setSearch] = useState(null);
     const [categories, setCategories] = useState(null);
     const [loading, seLoading] = useState(false);
 
@@ -17,6 +18,7 @@ const Search = (props) => {
         const query = queryString.parse(search);
 
         seLoading(true);
+        setSearch(query.search);
 
         CatalogService.search(query.search).then(data => {
             setCategories(data.categories);
@@ -27,7 +29,7 @@ const Search = (props) => {
 
     return <main className='page search-page'>
         <Helmet>
-            <title>Mercado Libre Chile</title>
+            <title>{(search ? `${search} en ` : '') + 'Mercado Libre Chile'}</title>
         </Helmet>
         <div className='container'>
             {loading && <Loader/>}

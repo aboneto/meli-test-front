@@ -14,14 +14,14 @@ const Product = (props) => {
         const {params} = props.match;
 
         CatalogService.getDetail(params.id).then(data => {
-            setCategories(data.categories);
+            if(data) setCategories(data.categories);
             setProduct(data);
         });
     }, [props]);
 
     return <main className='page product-page'>
         <Helmet>
-            <title>Mercado Libre Chile</title>
+            <title>{(product ? `${product.title} en ` : '') + 'Mercado Libre Chile'}</title>
         </Helmet>
         {!product && <Loader />}
         {categories && <Breadcrumb categories={categories}/>}

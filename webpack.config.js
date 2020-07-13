@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
-const packageJSON = require('./package');
 
 let plugins = [];
 
@@ -32,26 +31,7 @@ plugins.push(new MiniCssExtractPlugin({
     ignoreOrder: true,
 }));
 
-let PROJECT_ENV = {
-    proxyV2: 'https://apijumboweb.smdigital.cl/proxy/api/v2',
-    proxy: 'https://apijumboweb.smdigital.cl/proxy/api/v1',
-    ordersV2: 'https://apijumboweb.smdigital.cl/orders/api/v2',
-    ordersV3: 'https://apijumboweb.smdigital.cl/orders/api/v3',
-    orders: 'https://apijumboweb.smdigital.cl/orders/api/v1',
-    user: 'https://apijumboweb.smdigital.cl/user/api/v1',
-    userAddress: 'https://apijumboweb.smdigital.cl/user/address/api/v1',
-    shoppingList: 'https://apijumboweb.smdigital.cl/shopping-list/api/v1',
-    salesChannelV2: 'https://apijumboweb.smdigital.cl/sales-channel-geolocation/api/v2',
-    salesChannel: 'https://apijumboweb.smdigital.cl/sales-channel-geolocation/api/v1',
-    promotions: 'https://apijumboweb.smdigital.cl/promotions/api/v1',
-    express: 'https://api.smdigital.cl:8443/v0/cl/juboAhoraWeb/proxy/CMS',
-    search: 'https://apijumboweb.smdigital.cl/search/api/v1',
-    abandonedCart: 'https://apijumboweb.smdigital.cl/abandoned-cart/api/v1',
-    apiKey: '5CIqbUOvJhdpZp4bIE5jpiuFY3kLdq2z'
-};
-
 let publicPath = '/';
-let urlPath = '';
 
 module.exports = env => {
 
@@ -60,28 +40,6 @@ module.exports = env => {
     const postcssPlugins = [
         require('autoprefixer')({})
     ];
-
-    if(env && env.NODE_ENV === 'local'){
-        PROJECT_ENV = Object.assign(PROJECT_ENV, {
-            proxy: 'http://localhost:3001/api/v1',
-            orders: 'http://localhost:3002/api/v1',
-            user: 'http://localhost:3003/api/v1',
-            userAddress: 'http://localhost:3004/api/v1',
-            shoppingList: 'http://localhost:3005/api/v1',
-            salesChannel: 'http://localhost:3006/api/v1',
-            promotions: 'http://localhost:3000/api/v1'
-        });
-    }
-
-    if(env && env.NODE_ENV === 'development'){
-        PROJECT_ENV = Object.assign(PROJECT_ENV, {
-            authDevelopment: true
-        });
-    }
-
-    if(env && env.NODE_ENV === 'production') {
-        publicPath = 'https://cl-sisa-web-front-assets.smdigital.cl/';
-    }
 
     if(production) {
         plugins.push(new HtmlCriticalWebpackPlugin({
@@ -102,12 +60,6 @@ module.exports = env => {
 
         postcssPlugins.push(require('cssnano')());
     }
-
-    PROJECT_ENV.s3 = publicPath;
-
-    plugins.push(new webpack.DefinePlugin({ PROJECT_ENV: JSON.stringify(PROJECT_ENV) }));
-    plugins.push(new webpack.DefinePlugin({ VERSION_ENV: JSON.stringify(packageJSON.version) }));
-    plugins.push(new webpack.DefinePlugin({ PATH_ENV: JSON.stringify(urlPath) }));
 
     return {
         entry: {
